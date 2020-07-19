@@ -6,14 +6,17 @@ h1 {
 }
 aside{
     float: left;
-    width: fit-content;
+    width: 350px;
 }
 figure{
     display: inline-block;
     width: 300px;
     height: 300px;
-    margin: 20px;
+    margin: 0px;
     text-align: center;
+    padding: 5px;
+    vertical-align:top;
+
 
 }
 figure:hover{
@@ -22,12 +25,13 @@ figure:hover{
 }
 figure img {
     max-width: 90%;
-    max-height: 100%;
-    vertical-align: top;
+    max-height: 90%;
+    position: relative;
+
 
 }
-figcaption{
-    height: 40px;
+p,li,ul,img,section,aside,h1{
+    border: hidden;
 }
 footer{
     height: 70px;
