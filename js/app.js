@@ -162,36 +162,21 @@ function generateChart() {
         data: {
             labels: productsNames,
             datasets: [{
+                //two data set object
                 label: "clicks",
                 data: clicksArray,
                 backgroundColor: colorArray,
                 borderColor: colorArray,
                 borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
-
-    var cnvs2 = document.getElementById("resultdisplayschart").getContext('2d');
-    var resultdisplyChart = new Chart(cnvs2, {
-        type: 'bar',
-        data: {
-            labels: productsNames,
-            datasets: [{
+            },
+            {
                 label: "display times",
                 data: displayTimesArray,
                 backgroundColor: colorArray,
                 borderColor: colorArray,
                 borderWidth: 1
-            }]
+            }
+        ]
         },
         options: {
             scales: {
@@ -203,8 +188,6 @@ function generateChart() {
             }
         }
     });
-
-
 
 
 }
