@@ -123,7 +123,7 @@ function renderResults() {
 
         clicksArray[i] = item.clicks;
         displayTimesArray[i] = item.displayTimes;
-        li.textContent = `${item.name} had ${item.clicks} votes and was shown ${item.displayTimes} times`;
+        li.textContent = `${item.name}: ${item.clicks} votes and ${item.displayTimes} times shown`;
         ul.appendChild(li);
     }
     aside.appendChild(ul);
@@ -204,7 +204,8 @@ function generateChart() {
                 data: clicksArray, //change the array to display new results 
                 backgroundColor: colorArray,
                 borderColor: colorArray,
-                borderWidth: 1
+                borderWidth: 1,
+                
             },
             {
                 label: "display times",
