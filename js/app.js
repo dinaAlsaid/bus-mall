@@ -130,24 +130,24 @@ function renderResults() {
 }
 
 //collect data and create JSON string
-function storageData(){
+function storageData() {
     var jsonString = JSON.stringify(productArray);
-    localStorage.setItem("products",jsonString);
-    
-    
+    localStorage.setItem("products", jsonString);
+
+
 }
 
-function parseJsonString(){
-    var previousProducts= JSON.parse(localStorage.getItem("products"));
+function parseJsonString() {
+    var previousProducts = JSON.parse(localStorage.getItem("products"));
     updateDataFromStorage(previousProducts);
 
 }
 
 //add previous displaytimes and clicks to new ones
-function updateDataFromStorage(previousProducts){
-    for(let i=0; i<productArray.length; i++){
+function updateDataFromStorage(previousProducts) {
+    for (let i = 0; i < productArray.length; i++) {
         productArray[i].clicks += previousProducts[i].clicks;
-        productArray[i].displayTimes += previousProducts[i].displayTimes;    
+        productArray[i].displayTimes += previousProducts[i].displayTimes;
     }
 }
 
@@ -181,6 +181,13 @@ function newThreeImages(event) { //eventlistener
 }
 
 createProducts();
+if (localStorage.length !== 0) {
+    parseJsonString();
+    for (let i = 0; i < clicksArray.length; i++) {
+        clicksArray[i] += previousProducts[i].clicks;
+        displayTimesArray[i] += previousProducts[i].displayTimes;
+    }
+}
 selectThreeProducts();
 
 
@@ -194,7 +201,7 @@ function generateChart() {
             datasets: [{
                 //two data set object
                 label: "clicks",
-                data: clicksArray,
+                data: clicksArray, //change the array to display new results 
                 backgroundColor: colorArray,
                 borderColor: colorArray,
                 borderWidth: 1
@@ -206,7 +213,7 @@ function generateChart() {
                 borderColor: colorArray,
                 borderWidth: 1
             }
-        ]
+            ]
         },
         options: {
             scales: {
